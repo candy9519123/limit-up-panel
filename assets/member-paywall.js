@@ -150,19 +150,25 @@
     var tip = $('#member-only-tip');
     var status = $('#member-status');
     var open = $('#member-open');
+    var trackingGate = $('#tracking-gate');
+    var trackingContent = $('#tracking-content');
+    var trackingTip = $('#member-only-tip-tracking');
 
     if (gate) gate.classList.toggle('active', !paid);
     if (picks) picks.classList.toggle('locked-preview', !paid);
     if (tip) tip.classList.toggle('active', paid);
+    if (trackingGate) trackingGate.classList.toggle('active', !paid);
+    if (trackingContent) trackingContent.classList.toggle('locked-preview', !paid);
+    if (trackingTip) trackingTip.classList.toggle('active', paid);
 
     if (status) {
       status.classList.toggle('paid', paid);
       if (paid) {
         status.textContent = '会员已开通 · 到期 ' + formatDate(member.expiresAt);
       } else if (userName) {
-        status.textContent = '已登录未付费 · 9:40个股锁定';
+        status.textContent = '已登录未付费 · 9:40个股及次日跟踪锁定';
       } else {
-        status.textContent = '未登录 · 9:40个股锁定';
+        status.textContent = '未登录 · 9:40个股及次日跟踪锁定';
       }
     }
 
@@ -182,6 +188,7 @@
     var login = $('#member-login');
     var payDemo = $('#member-pay-demo');
     var gatePay = $('#gate-pay');
+    var trackingGatePay = $('#tracking-gate-pay');
 
     if (close) close.addEventListener('click', closeModal);
     if (modal) {
@@ -192,6 +199,7 @@
     if (login) login.addEventListener('click', loginOnly);
     if (payDemo) payDemo.addEventListener('click', activateMonthlyMember);
     if (gatePay) gatePay.addEventListener('click', openModal);
+    if (trackingGatePay) trackingGatePay.addEventListener('click', openModal);
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') closeModal();
