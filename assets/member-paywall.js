@@ -3,8 +3,16 @@
   var MEMBER_KEY = 'limit_up_panel_member';
   var USER_KEY = 'limit_up_panel_user';
   var ACTIVATION_CODE_HASHES = [
-    // 默认口令：ZT940-299。上线前建议在 PAYMENT_SETUP.md 中生成新的哈希并替换。
-    'f2854638f5a49865976aac6968ae8ae5f0d27c589e02b66595a6e736fd1a5ef7'
+    // 默认口令：ZT940-299（已停用，保留兼容）
+    'f2854638f5a49865976aac6968ae8ae5f0d27c589e02b66595a6e736fd1a5ef7',
+    // 2026年6月口令：ZT940-202606
+    '8adeb42c2f43fa970e741d4023538c7a53116439babb8eb95f98819adb98f015',
+    // 2026年7月口令：ZT940-202607
+    'ac56a08ae3989f4d4763e8f24a6d8192a6e4d30ba7dc13968c19c8e24a80bf87',
+    // 2026年8月口令：ZT940-202608
+    '8210f81f931500463f3dfd3736d681b5a75cad5c402ca5a6feef9588a18948d2',
+    // 2026年9月口令：ZT940-202609
+    '1ea1ea6d24c0727ad17b9fd1d7272ebaf79ad19827f5584f67072f237ba1fcba'
   ];
 
   function $(selector) {
