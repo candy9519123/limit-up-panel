@@ -2,35 +2,67 @@ name: 每日 9:40 更新 AkShare 行情
 
 on:
   schedule:
-    - cron: '40 1 * * 1-5'  # UTC 01:40 = 北京时间 09:40，周一至周五
+    # GitHub Actions 使用 UTC 时间；北京时间 09:40 = UTC 01:40
+    # 工作日触发，A 股节假日由 fetch_akshare_data.py 的回溯逻辑处理
+    - cron: "40 1 * * 1-5"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-data:
+  update-market-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: 检出代码
+      - name: 拉取代码
         uses: actions/checkout@v4
 
-      - name: 设置 Python
+      - name: 安装 Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: 安装依赖
         run: |
-          pip install akshare pandas --break-system-packages
+          python -m pip install --upgrade pip
+          pip install akshare pandas
 
-      - name: 运行数据抓取
+      - name: 测试网络连通性
         run: |
-          python fetch_akshare_data.py
+          echo "=== 测试东方财富 API 连通性 ==="
+          curl -s -o /dev/null -w "HTTP %{http_code} - %{time_total}s" "https://push2ex.eastmoney.com/getTopicZTPool" || echo "连接失败"
+          echo ""
+          echo "=== 当前时间（UTC）==="
+          date -u "+%Y-%m-%d %H:%M:%S UTC"
+          echo "=== 当前时间（Asia/Shanghai）==="
+          TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M:%S %Z"
 
-      - name: 提交更新
+      - name: 生成最新行情数据
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          echo "=== 开始执行数据抓取脚本 ==="
+          python fetch_akshare_data.py 2>&1
+          echo "=== 脚本执行完毕 ==="
+
+      - name: 检查生成结果
+        run: |
+          echo "=== market-data.js 前 10 行 ==="
+          head -10 assets/market-data.js
+          echo ""
+          echo "=== 文件大小 ==="
+          ls -la assets/market-data.js assets/market-data.json
+
+      - name: 提交更新后的数据
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/market-data.js assets/market-data.json
-          git diff --cached --quiet || (git commit -m "每日 9:40 更新 AkShare 行情数据" && git push)
+          if git diff --cached --quiet; then
+            echo "⚠️ 行情数据无变化，跳过提交"
+            echo "如果数据应该变化但没变，请检查上方日志中 [INFO] 的实际交易日"
+          else
+            echo "✅ 检测到数据变化，正在提交..."
+            git commit -m "更新 AkShare 行情数据 $(TZ=Asia/Shanghai date +%Y-%m-%d)"
+            git push
+            echo "✅ 推送成功"
+          fi
