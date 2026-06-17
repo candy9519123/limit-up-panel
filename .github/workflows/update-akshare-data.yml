@@ -1,0 +1,36 @@
+name: 每日 9:40 更新 AkShare 行情
+
+on:
+  schedule:
+    - cron: '40 1 * * 1-5'  # UTC 01:40 = 北京时间 09:40，周一至周五
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          pip install akshare pandas --break-system-packages
+
+      - name: 运行数据抓取
+        run: |
+          python fetch_akshare_data.py
+
+      - name: 提交更新
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add assets/market-data.js assets/market-data.json
+          git diff --cached --quiet || (git commit -m "每日 9:40 更新 AkShare 行情数据" && git push)
