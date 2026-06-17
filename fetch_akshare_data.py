@@ -410,7 +410,7 @@ def build_trend(target_date: str, current_sentiment: dict[str, Any]) -> dict[str
 
 
 def write_frontend_data(data: dict[str, Any]) -> None:
-    ASSETS.mkdir(exist_ok=True)
+    ASSETS.mkdir(parents=True, exist_ok=True)
     json_path = ASSETS / "market-data.json"
     js_path = ASSETS / "market-data.js"
     payload = json.dumps(data, ensure_ascii=False, indent=2)
@@ -419,24 +419,42 @@ def write_frontend_data(data: dict[str, Any]) -> None:
         "window.AKSHARE_MARKET_DATA = " + payload + ";\n",
         encoding="utf-8",
     )
+    print(f"[INFO] 已写入 {js_path}（{js_path.stat().st_size} 字节）")
+    print(f"[INFO] 已写入 {json_path}（{json_path.stat().st_size} 字节）")
 
 
 def main() -> None:
+    import platform
+    print(f"[INFO] Python {platform.python_version()} on {platform.system()} {platform.release()}")
+    print(f"[INFO] AkShare {getattr(ak, '__version__', 'unknown')}")
+
     parser = argparse.ArgumentParser(description="AkShare 涨停板行情接入脚本")
     parser.add_argument("--date", default=datetime.now().strftime("%Y%m%d"), help="交易日，格式 YYYYMMDD")
     parser.add_argument("--lookback", type=int, default=20, help="目标日无数据时向前回溯天数")
     args = parser.parse_args()
 
+    print(f"[INFO] 目标日期: {args.date}")
+
     actual_date, raw_zt = latest_available_limit_up(args.date, args.lookback)
+    print(f"[INFO] 实际交易日: {actual_date}，涨停池原始行数: {len(raw_zt)}")
     zt = normalize_limit_up(raw_zt)
+    print(f"[INFO] 标准化后涨停池: {len(zt)} 只")
+
     previous = safe_ak_call("stock_zt_pool_previous_em", date=actual_date)
+    print(f"[INFO] 昨日涨停表现: {len(previous)} 只")
     strong = safe_ak_call("stock_zt_pool_strong_em", date=actual_date)
+    print(f"[INFO] 强势股池: {len(strong)} 只")
 
     sentiment = calc_sentiment(zt, previous)
+    print(f"[INFO] 情绪温度: {sentiment['temperature']}℃，阶段: {sentiment['stage']}")
+
     themes = calc_themes(zt)
+    print(f"[INFO] 题材板块: {len(themes)} 个")
+
     premarket, intraday = build_picks(zt, themes, sentiment)
     tracking = build_tracking(intraday)
     trend = build_trend(actual_date, sentiment)
+    print(f"[INFO] 趋势数据点: {len(trend['dates'])} 天")
 
     data = {
         "meta": {
@@ -466,9 +484,8 @@ def main() -> None:
     }
 
     write_frontend_data(data)
-    print(f"已生成：{ASSETS / 'market-data.js'}")
-    print(f"交易日：{actual_date}，涨停池：{len(zt)} 只，题材：{len(themes)} 个")
-    print(f"情绪：{sentiment['stage']} · {sentiment['temperature']}℃，建议总仓位：{sentiment['suggested_position']}%")
+    print(f"[DONE] 交易日：{actual_date}，涨停池：{len(zt)} 只，题材：{len(themes)} 个")
+    print(f"[DONE] 情绪：{sentiment['stage']} · {sentiment['temperature']}℃，建议总仓位：{sentiment['suggested_position']}%")
 
 
 if __name__ == "__main__":
