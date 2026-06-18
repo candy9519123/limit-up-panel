@@ -1,9 +1,9 @@
 window.AKSHARE_MARKET_DATA = {
   "meta": {
     "source": "AkShare / 东方财富涨停池",
-    "requested_date": "20260617",
-    "trade_date": "20260617",
-    "generated_at": "2026-06-17 15:16:09",
+    "requested_date": "20260618",
+    "trade_date": "20260618",
+    "generated_at": "2026-06-18 12:44:01",
     "akshare_version": "1.18.64",
     "notes": [
       "涨停池来自 stock_zt_pool_em",
@@ -13,21 +13,20 @@ window.AKSHARE_MARKET_DATA = {
     ]
   },
   "sentiment": {
-    "temperature": 36,
+    "temperature": 37,
     "stage": "修复",
     "stage_desc": "赚钱效应开始恢复，适合小仓试错",
-    "limit_up_count": 86,
-    "highest_board": 3,
-    "broken_count": 43,
-    "break_rate": 50.0,
-    "promotion_rate": 19.13,
+    "limit_up_count": 91,
+    "highest_board": 4,
+    "broken_count": 54,
+    "break_rate": 59.34,
+    "promotion_rate": 15.12,
     "suggested_position": 25,
     "cash_buffer": 55,
     "flex_position": 20
   },
   "trend": {
     "dates": [
-      "06/04",
       "06/05",
       "06/08",
       "06/09",
@@ -36,10 +35,10 @@ window.AKSHARE_MARKET_DATA = {
       "06/12",
       "06/15",
       "06/16",
-      "06/17"
+      "06/17",
+      "06/18"
     ],
     "limit_ups": [
-      80,
       73,
       57,
       130,
@@ -48,10 +47,10 @@ window.AKSHARE_MARKET_DATA = {
       89,
       145,
       117,
-      86
+      86,
+      91
     ],
     "heights": [
-      4,
       5,
       6,
       3,
@@ -60,10 +59,10 @@ window.AKSHARE_MARKET_DATA = {
       4,
       3,
       4,
-      3
+      3,
+      4
     ],
     "temperatures": [
-      35,
       34,
       38,
       48,
@@ -72,137 +71,160 @@ window.AKSHARE_MARKET_DATA = {
       38,
       48,
       48,
-      36
+      36,
+      37
     ]
   },
   "themes": [
     {
-      "name": "光学光电",
+      "name": "小金属",
       "heat": 84,
-      "limit_up_count": 9,
-      "amount": 349.06,
-      "seal_money": 26.15,
-      "max_board": 2,
-      "avg_turnover": 7.12,
+      "limit_up_count": 5,
+      "amount": 250.22,
+      "seal_money": 8.16,
+      "max_board": 1,
+      "avg_turnover": 13.57,
       "leaders": [
         {
-          "code": "603773",
-          "name": "沃格光电",
-          "board": 2
+          "code": "002167",
+          "name": "东方锆业",
+          "board": 1
         },
         {
-          "code": "000725",
-          "name": "京东方Ａ",
+          "code": "000657",
+          "name": "中钨高新",
           "board": 1
         }
       ],
       "status": "主升"
     },
     {
-      "name": "元件",
-      "heat": 73,
-      "limit_up_count": 10,
-      "amount": 257.42,
-      "seal_money": 11.45,
-      "max_board": 3,
-      "avg_turnover": 9.07,
+      "name": "通信设备",
+      "heat": 68,
+      "limit_up_count": 4,
+      "amount": 161.22,
+      "seal_money": 7.79,
+      "max_board": 2,
+      "avg_turnover": 5.44,
       "leaders": [
         {
-          "code": "603186",
-          "name": "华正新材",
-          "board": 3
+          "code": "002491",
+          "name": "通鼎互联",
+          "board": 2
         },
         {
-          "code": "603115",
-          "name": "海星股份",
-          "board": 3
+          "code": "002281",
+          "name": "光迅科技",
+          "board": 1
         }
       ],
       "status": "活跃"
     },
     {
-      "name": "半导体",
-      "heat": 49,
-      "limit_up_count": 3,
-      "amount": 411.39,
-      "seal_money": 12.62,
+      "name": "汽车零部",
+      "heat": 56,
+      "limit_up_count": 6,
+      "amount": 36.17,
+      "seal_money": 2.45,
       "max_board": 1,
-      "avg_turnover": 6.09,
+      "avg_turnover": 12.61,
       "leaders": [
         {
-          "code": "603986",
-          "name": "兆易创新",
+          "code": "603211",
+          "name": "晋拓股份",
           "board": 1
         },
         {
-          "code": "688082",
-          "name": "盛美上海",
+          "code": "002283",
+          "name": "天润工业",
           "board": 1
         }
       ],
-      "status": "轮动"
+      "status": "活跃"
     },
     {
-      "name": "玻璃玻纤",
-      "heat": 40,
+      "name": "专用设备",
+      "heat": 54,
       "limit_up_count": 5,
-      "amount": 151.01,
-      "seal_money": 6.2,
+      "amount": 66.07,
+      "seal_money": 2.5,
       "max_board": 3,
-      "avg_turnover": 4.42,
+      "avg_turnover": 8.34,
       "leaders": [
         {
-          "code": "601636",
-          "name": "旗滨集团",
+          "code": "600397",
+          "name": "江钨装备",
           "board": 3
         },
         {
-          "code": "002080",
-          "name": "中材科技",
-          "board": 3
-        }
-      ],
-      "status": "轮动"
-    },
-    {
-      "name": "其他电子",
-      "heat": 33,
-      "limit_up_count": 3,
-      "amount": 129.94,
-      "seal_money": 10.37,
-      "max_board": 3,
-      "avg_turnover": 7.15,
-      "leaders": [
-        {
-          "code": "600353",
-          "name": "旭光电子",
-          "board": 3
-        },
-        {
-          "code": "300475",
-          "name": "香农芯创",
+          "code": "600545",
+          "name": "卓郎智能",
           "board": 1
         }
       ],
       "status": "轮动"
     },
     {
-      "name": "专业工程",
-      "heat": 27,
+      "name": "半导体",
+      "heat": 46,
       "limit_up_count": 4,
-      "amount": 63.22,
-      "seal_money": 5.55,
+      "amount": 53.79,
+      "seal_money": 3.8,
       "max_board": 1,
-      "avg_turnover": 6.46,
+      "avg_turnover": 15.96,
       "leaders": [
         {
-          "code": "601117",
-          "name": "中国化学",
+          "code": "688478",
+          "name": "晶升股份",
           "board": 1
         },
         {
-          "code": "603929",
-          "name": "亚翔集成",
+          "code": "688515",
+          "name": "裕太微-U",
+          "board": 1
+        }
+      ],
+      "status": "轮动"
+    },
+    {
+      "name": "元件",
+      "heat": 43,
+      "limit_up_count": 3,
+      "amount": 62.23,
+      "seal_money": 4.46,
+      "max_board": 3,
+      "avg_turnover": 11.56,
+      "leaders": [
+        {
+          "code": "603989",
+          "name": "艾华集团",
+          "board": 3
+        },
+        {
+          "code": "002579",
+          "name": "中京电子",
+          "board": 2
+        }
+      ],
+      "status": "轮动"
+    },
+    {
+      "name": "医疗器械",
+      "heat": 40,
+      "limit_up_count": 3,
+      "amount": 20.07,
+      "seal_money": 5.62,
+      "max_board": 1,
+      "avg_turnover": 4.47,
+      "leaders": [
+        {
+          "code": "002432",
+          "name": "九安医疗",
+          "board": 1
+        },
+        {
+          "code": "301580",
+          "name": "爱迪特",
           "board": 1
         }
       ],
@@ -210,44 +232,22 @@ window.AKSHARE_MARKET_DATA = {
     },
     {
       "name": "通用设备",
-      "heat": 23,
+      "heat": 39,
       "limit_up_count": 3,
-      "amount": 35.13,
-      "seal_money": 4.76,
-      "max_board": 3,
-      "avg_turnover": 9.29,
+      "amount": 19.28,
+      "seal_money": 4.84,
+      "max_board": 2,
+      "avg_turnover": 5.0,
       "leaders": [
-        {
-          "code": "000777",
-          "name": "中核科技",
-          "board": 3
-        },
         {
           "code": "000811",
           "name": "冰轮环境",
-          "board": 1
-        }
-      ],
-      "status": "轮动"
-    },
-    {
-      "name": "电网设备",
-      "heat": 21,
-      "limit_up_count": 3,
-      "amount": 41.3,
-      "seal_money": 1.69,
-      "max_board": 3,
-      "avg_turnover": 14.16,
-      "leaders": [
-        {
-          "code": "603618",
-          "name": "杭电股份",
-          "board": 3
+          "board": 2
         },
         {
-          "code": "600192",
-          "name": "长城电工",
-          "board": 2
+          "code": "002158",
+          "name": "汉钟精机",
+          "board": 1
         }
       ],
       "status": "轮动"
@@ -255,232 +255,232 @@ window.AKSHARE_MARKET_DATA = {
   ],
   "premarket": [
     {
-      "code": "603773",
-      "name": "沃格光电",
+      "code": "000657",
+      "name": "中钨高新",
       "market": "主板 · 10cm",
-      "industry": "光学光电",
-      "role": "题材龙头",
-      "score": 73,
-      "latest": 166.13,
+      "industry": "小金属",
+      "role": "容量中军",
+      "score": 72,
+      "latest": 98.48,
       "change_pct": 10.0,
-      "buy_price": 166.13,
-      "stop_price": 159.48,
-      "target_price": 177.76,
-      "board_count": 2,
-      "seal_money": "2.81亿",
-      "first_seal_time": "09:39:14",
+      "buy_price": 98.48,
+      "stop_price": 94.54,
+      "target_price": 105.37,
+      "board_count": 1,
+      "seal_money": "2.78亿",
+      "first_seal_time": "13:59:09",
       "break_count": 0,
-      "turnover": 5.31,
-      "reason": "光学光电板块涨停密度靠前，当前2连板，首次封板 09:39:14，封板资金 2.81亿，炸板次数 0。"
+      "turnover": 6.3,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:59:09，封板资金 2.78亿，炸板次数 0。"
     },
     {
-      "code": "000725",
-      "name": "京东方Ａ",
+      "code": "002167",
+      "name": "东方锆业",
       "market": "主板 · 10cm",
-      "industry": "光学光电",
-      "role": "容量中军",
-      "score": 73,
-      "latest": 6.71,
-      "change_pct": 10.0,
-      "buy_price": 6.71,
-      "stop_price": 6.44,
-      "target_price": 7.18,
+      "industry": "小金属",
+      "role": "首板补涨",
+      "score": 70,
+      "latest": 16.13,
+      "change_pct": 10.03,
+      "buy_price": 16.13,
+      "stop_price": 15.48,
+      "target_price": 17.26,
       "board_count": 1,
-      "seal_money": "14.41亿",
-      "first_seal_time": "09:46:57",
+      "seal_money": "4.18亿",
+      "first_seal_time": "09:25:00",
+      "break_count": 0,
+      "turnover": 3.73,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:25:00，封板资金 4.18亿，炸板次数 0。"
+    },
+    {
+      "code": "002491",
+      "name": "通鼎互联",
+      "market": "主板 · 10cm",
+      "industry": "通信设备",
+      "role": "题材龙头",
+      "score": 68,
+      "latest": 31.58,
+      "change_pct": 10.0,
+      "buy_price": 31.58,
+      "stop_price": 30.32,
+      "target_price": 33.79,
+      "board_count": 2,
+      "seal_money": "2.32亿",
+      "first_seal_time": "09:30:57",
+      "break_count": 0,
+      "turnover": 4.71,
+      "reason": "通信设备板块涨停密度靠前，当前2连板，首次封板 09:30:57，封板资金 2.32亿，炸板次数 0。"
+    },
+    {
+      "code": "002281",
+      "name": "光迅科技",
+      "market": "主板 · 10cm",
+      "industry": "通信设备",
+      "role": "容量中军",
+      "score": 67,
+      "latest": 266.2,
+      "change_pct": 10.0,
+      "buy_price": 266.2,
+      "stop_price": 255.55,
+      "target_price": 284.83,
+      "board_count": 1,
+      "seal_money": "4.09亿",
+      "first_seal_time": "10:51:48",
       "break_count": 0,
       "turnover": 5.25,
-      "reason": "光学光电板块涨停密度靠前，当前1连板，首次封板 09:46:57，封板资金 14.41亿，炸板次数 0。"
+      "reason": "通信设备板块涨停密度靠前，当前1连板，首次封板 10:51:48，封板资金 4.09亿，炸板次数 0。"
     },
     {
-      "code": "603115",
-      "name": "海星股份",
+      "code": "603989",
+      "name": "艾华集团",
       "market": "主板 · 10cm",
       "industry": "元件",
       "role": "题材龙头",
-      "score": 69,
-      "latest": 119.94,
-      "change_pct": 10.0,
-      "buy_price": 119.94,
-      "stop_price": 115.14,
-      "target_price": 128.34,
+      "score": 61,
+      "latest": 41.5,
+      "change_pct": 9.99,
+      "buy_price": 41.5,
+      "stop_price": 39.84,
+      "target_price": 44.41,
       "board_count": 3,
-      "seal_money": "2747万",
-      "first_seal_time": "09:36:50",
+      "seal_money": "1.28亿",
+      "first_seal_time": "09:30:47",
       "break_count": 0,
-      "turnover": 1.87,
-      "reason": "元件板块涨停密度靠前，当前3连板，首次封板 09:36:50，封板资金 2747万，炸板次数 0。"
+      "turnover": 1.35,
+      "reason": "元件板块涨停密度靠前，当前3连板，首次封板 09:30:47，封板资金 1.28亿，炸板次数 0。"
     },
     {
-      "code": "688079",
-      "name": "美迪凯",
-      "market": "科创板 · 20cm",
-      "industry": "光学光电",
-      "role": "首板补涨",
-      "score": 69,
-      "latest": 31.94,
-      "change_pct": 19.98,
-      "buy_price": 31.94,
-      "stop_price": 29.7,
-      "target_price": 35.77,
-      "board_count": 1,
-      "seal_money": "1.23亿",
-      "first_seal_time": "09:35:08",
-      "break_count": 0,
-      "turnover": 4.0,
-      "reason": "光学光电板块涨停密度靠前，当前1连板，首次封板 09:35:08，封板资金 1.23亿，炸板次数 0。"
-    },
-    {
-      "code": "002106",
-      "name": "莱宝高科",
+      "code": "600545",
+      "name": "卓郎智能",
       "market": "主板 · 10cm",
-      "industry": "光学光电",
+      "industry": "专用设备",
       "role": "首板补涨",
-      "score": 69,
-      "latest": 14.78,
-      "change_pct": 9.97,
-      "buy_price": 14.78,
-      "stop_price": 14.19,
-      "target_price": 15.81,
+      "score": 61,
+      "latest": 7.25,
+      "change_pct": 10.02,
+      "buy_price": 7.25,
+      "stop_price": 6.96,
+      "target_price": 7.76,
       "board_count": 1,
-      "seal_money": "8839万",
-      "first_seal_time": "09:43:54",
+      "seal_money": "9461万",
+      "first_seal_time": "11:26:56",
       "break_count": 0,
-      "turnover": 5.94,
-      "reason": "光学光电板块涨停密度靠前，当前1连板，首次封板 09:43:54，封板资金 8839万，炸板次数 0。"
-    },
-    {
-      "code": "002916",
-      "name": "深南电路",
-      "market": "主板 · 10cm",
-      "industry": "元件",
-      "role": "容量中军",
-      "score": 68,
-      "latest": 444.27,
-      "change_pct": 10.0,
-      "buy_price": 444.27,
-      "stop_price": 426.5,
-      "target_price": 475.37,
-      "board_count": 1,
-      "seal_money": "4.94亿",
-      "first_seal_time": "09:59:33",
-      "break_count": 0,
-      "turnover": 1.81,
-      "reason": "元件板块涨停密度靠前，当前1连板，首次封板 09:59:33，封板资金 4.94亿，炸板次数 0。"
+      "turnover": 9.66,
+      "reason": "专用设备板块涨停密度靠前，当前1连板，首次封板 11:26:56，封板资金 9461万，炸板次数 0。"
     }
   ],
   "intraday": [
     {
-      "code": "603773",
-      "name": "沃格光电",
+      "code": "000657",
+      "name": "中钨高新",
       "market": "主板 · 10cm",
-      "industry": "光学光电",
-      "role": "题材龙头",
-      "score": 73,
-      "latest": 166.13,
+      "industry": "小金属",
+      "role": "容量中军",
+      "score": 72,
+      "latest": 98.48,
       "change_pct": 10.0,
-      "buy_price": 166.13,
-      "stop_price": 159.48,
-      "target_price": 177.76,
-      "board_count": 2,
-      "seal_money": "2.81亿",
-      "first_seal_time": "09:39:14",
+      "buy_price": 98.48,
+      "stop_price": 94.54,
+      "target_price": 105.37,
+      "board_count": 1,
+      "seal_money": "2.78亿",
+      "first_seal_time": "13:59:09",
       "break_count": 0,
-      "turnover": 5.31,
-      "reason": "光学光电板块涨停密度靠前，当前2连板，首次封板 09:39:14，封板资金 2.81亿，炸板次数 0。",
+      "turnover": 6.3,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:59:09，封板资金 2.78亿，炸板次数 0。",
       "grade": "A+",
       "position": 12,
-      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.81亿，所属行业 光学光电。"
+      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.78亿，所属行业 小金属。"
     },
     {
-      "code": "000725",
-      "name": "京东方Ａ",
+      "code": "002167",
+      "name": "东方锆业",
       "market": "主板 · 10cm",
-      "industry": "光学光电",
-      "role": "容量中军",
-      "score": 73,
-      "latest": 6.71,
-      "change_pct": 10.0,
-      "buy_price": 6.71,
-      "stop_price": 6.44,
-      "target_price": 7.18,
+      "industry": "小金属",
+      "role": "首板补涨",
+      "score": 70,
+      "latest": 16.13,
+      "change_pct": 10.03,
+      "buy_price": 16.13,
+      "stop_price": 15.48,
+      "target_price": 17.26,
       "board_count": 1,
-      "seal_money": "14.41亿",
-      "first_seal_time": "09:46:57",
+      "seal_money": "4.18亿",
+      "first_seal_time": "09:25:00",
       "break_count": 0,
-      "turnover": 5.25,
-      "reason": "光学光电板块涨停密度靠前，当前1连板，首次封板 09:46:57，封板资金 14.41亿，炸板次数 0。",
+      "turnover": 3.73,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:25:00，封板资金 4.18亿，炸板次数 0。",
       "grade": "A",
       "position": 8,
-      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 14.41亿，所属行业 光学光电。"
+      "trigger": "09:40 强度过滤：涨幅 10.03%，封板资金 4.18亿，所属行业 小金属。"
     },
     {
-      "code": "603115",
-      "name": "海星股份",
+      "code": "002491",
+      "name": "通鼎互联",
       "market": "主板 · 10cm",
-      "industry": "元件",
+      "industry": "通信设备",
       "role": "题材龙头",
-      "score": 69,
-      "latest": 119.94,
+      "score": 68,
+      "latest": 31.58,
       "change_pct": 10.0,
-      "buy_price": 119.94,
-      "stop_price": 115.14,
-      "target_price": 128.34,
-      "board_count": 3,
-      "seal_money": "2747万",
-      "first_seal_time": "09:36:50",
+      "buy_price": 31.58,
+      "stop_price": 30.32,
+      "target_price": 33.79,
+      "board_count": 2,
+      "seal_money": "2.32亿",
+      "first_seal_time": "09:30:57",
       "break_count": 0,
-      "turnover": 1.87,
-      "reason": "元件板块涨停密度靠前，当前3连板，首次封板 09:36:50，封板资金 2747万，炸板次数 0。",
+      "turnover": 4.71,
+      "reason": "通信设备板块涨停密度靠前，当前2连板，首次封板 09:30:57，封板资金 2.32亿，炸板次数 0。",
       "grade": "A-",
       "position": 5,
-      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2747万，所属行业 元件。"
+      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.32亿，所属行业 通信设备。"
     }
   ],
   "tracking": [
     {
-      "code": "603773",
-      "name": "沃格光电",
+      "code": "000657",
+      "name": "中钨高新",
       "position": 12,
-      "cost": 166.13,
-      "latest": 166.13,
+      "cost": 98.48,
+      "latest": 98.48,
       "pnl": 0.0,
-      "industry_status": "光学光电 · 题材龙头",
-      "key_signal": "2连板 / 首封 09:39:14",
+      "industry_status": "小金属 · 容量中军",
+      "key_signal": "1连板 / 首封 13:59:09",
       "signal": "分批止盈",
       "signal_class": "add",
       "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
     },
     {
-      "code": "000725",
-      "name": "京东方Ａ",
+      "code": "002167",
+      "name": "东方锆业",
       "position": 8,
-      "cost": 6.71,
-      "latest": 6.71,
+      "cost": 16.13,
+      "latest": 16.13,
       "pnl": 0.0,
-      "industry_status": "光学光电 · 容量中军",
-      "key_signal": "1连板 / 首封 09:46:57",
+      "industry_status": "小金属 · 首板补涨",
+      "key_signal": "1连板 / 首封 09:25:00",
       "signal": "分批止盈",
       "signal_class": "add",
       "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
     },
     {
-      "code": "603115",
-      "name": "海星股份",
+      "code": "002491",
+      "name": "通鼎互联",
       "position": 5,
-      "cost": 119.94,
-      "latest": 119.94,
+      "cost": 31.58,
+      "latest": 31.58,
       "pnl": 0.0,
-      "industry_status": "元件 · 题材龙头",
-      "key_signal": "3连板 / 首封 09:36:50",
+      "industry_status": "通信设备 · 题材龙头",
+      "key_signal": "2连板 / 首封 09:30:57",
       "signal": "分批止盈",
       "signal_class": "add",
       "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
     }
   ],
   "raw_counts": {
-    "limit_up_pool": 86,
-    "previous_pool": 115,
-    "strong_pool": 312
+    "limit_up_pool": 91,
+    "previous_pool": 86,
+    "strong_pool": 347
   }
 };
