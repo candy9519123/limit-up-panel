@@ -1,9 +1,9 @@
 window.AKSHARE_MARKET_DATA = {
   "meta": {
     "source": "AkShare / 东方财富涨停池",
-    "requested_date": "20260619",
-    "trade_date": "20260619",
-    "generated_at": "2026-06-19 13:57:32",
+    "requested_date": "20260622",
+    "trade_date": "20260622",
+    "generated_at": "2026-06-22 13:22:22",
     "akshare_version": "1.18.64",
     "notes": [
       "涨停池来自 stock_zt_pool_em",
@@ -13,16 +13,16 @@ window.AKSHARE_MARKET_DATA = {
     ]
   },
   "sentiment": {
-    "temperature": 37,
-    "stage": "修复",
-    "stage_desc": "赚钱效应开始恢复，适合小仓试错",
-    "limit_up_count": 91,
-    "highest_board": 4,
-    "broken_count": 54,
-    "break_rate": 59.34,
-    "promotion_rate": 15.12,
-    "suggested_position": 25,
-    "cash_buffer": 55,
+    "temperature": 54,
+    "stage": "主升初中段",
+    "stage_desc": "题材承接较强，可围绕前排参与",
+    "limit_up_count": 134,
+    "highest_board": 5,
+    "broken_count": 82,
+    "break_rate": 61.19,
+    "promotion_rate": 29.67,
+    "suggested_position": 40,
+    "cash_buffer": 40,
     "flex_position": 20
   },
   "trend": {
@@ -36,7 +36,7 @@ window.AKSHARE_MARKET_DATA = {
       "06/16",
       "06/17",
       "06/18",
-      "06/19"
+      "06/22"
     ],
     "limit_ups": [
       57,
@@ -48,7 +48,7 @@ window.AKSHARE_MARKET_DATA = {
       117,
       86,
       91,
-      91
+      134
     ],
     "heights": [
       6,
@@ -60,7 +60,7 @@ window.AKSHARE_MARKET_DATA = {
       4,
       3,
       4,
-      4
+      5
     ],
     "temperatures": [
       38,
@@ -72,93 +72,137 @@ window.AKSHARE_MARKET_DATA = {
       48,
       36,
       37,
-      37
+      54
     ]
   },
   "themes": [
     {
       "name": "小金属",
-      "heat": 84,
-      "limit_up_count": 5,
-      "amount": 250.22,
-      "seal_money": 8.16,
-      "max_board": 1,
-      "avg_turnover": 13.57,
+      "heat": 88,
+      "limit_up_count": 8,
+      "amount": 401.34,
+      "seal_money": 22.47,
+      "max_board": 2,
+      "avg_turnover": 8.35,
       "leaders": [
         {
           "code": "002167",
           "name": "东方锆业",
-          "board": 1
+          "board": 2
         },
         {
           "code": "000657",
           "name": "中钨高新",
-          "board": 1
+          "board": 2
         }
       ],
       "status": "主升"
     },
     {
-      "name": "通信设备",
-      "heat": 68,
-      "limit_up_count": 4,
-      "amount": 161.22,
-      "seal_money": 7.79,
+      "name": "化学原料",
+      "heat": 63,
+      "limit_up_count": 9,
+      "amount": 107.96,
+      "seal_money": 9.55,
       "max_board": 2,
-      "avg_turnover": 5.44,
+      "avg_turnover": 5.7,
       "leaders": [
         {
-          "code": "002491",
-          "name": "通鼎互联",
+          "code": "603407",
+          "name": "长裕集团",
           "board": 2
         },
         {
-          "code": "002281",
-          "name": "光迅科技",
+          "code": "603663",
+          "name": "三祥新材",
+          "board": 2
+        }
+      ],
+      "status": "活跃"
+    },
+    {
+      "name": "化学制品",
+      "heat": 61,
+      "limit_up_count": 8,
+      "amount": 207.53,
+      "seal_money": 6.74,
+      "max_board": 2,
+      "avg_turnover": 10.57,
+      "leaders": [
+        {
+          "code": "300522",
+          "name": "世名科技",
+          "board": 2
+        },
+        {
+          "code": "002407",
+          "name": "多氟多",
           "board": 1
         }
       ],
       "status": "活跃"
     },
     {
-      "name": "汽车零部",
-      "heat": 56,
-      "limit_up_count": 6,
-      "amount": 36.17,
-      "seal_money": 2.45,
+      "name": "工业金属",
+      "heat": 55,
+      "limit_up_count": 8,
+      "amount": 120.38,
+      "seal_money": 6.92,
       "max_board": 1,
-      "avg_turnover": 12.61,
+      "avg_turnover": 6.33,
       "leaders": [
         {
-          "code": "603211",
-          "name": "晋拓股份",
+          "code": "600497",
+          "name": "驰宏锌锗",
           "board": 1
         },
         {
-          "code": "002283",
-          "name": "天润工业",
+          "code": "000751",
+          "name": "锌业股份",
           "board": 1
         }
       ],
-      "status": "活跃"
+      "status": "轮动"
     },
     {
-      "name": "专用设备",
-      "heat": 54,
+      "name": "通信设备",
+      "heat": 46,
       "limit_up_count": 5,
-      "amount": 66.07,
-      "seal_money": 2.5,
-      "max_board": 3,
-      "avg_turnover": 8.34,
+      "amount": 165.29,
+      "seal_money": 8.76,
+      "max_board": 2,
+      "avg_turnover": 6.51,
       "leaders": [
         {
-          "code": "600397",
-          "name": "江钨装备",
-          "board": 3
+          "code": "003031",
+          "name": "中瓷电子",
+          "board": 2
         },
         {
-          "code": "600545",
-          "name": "卓郎智能",
+          "code": "601869",
+          "name": "长飞光纤",
+          "board": 1
+        }
+      ],
+      "status": "轮动"
+    },
+    {
+      "name": "农化制品",
+      "heat": 45,
+      "limit_up_count": 7,
+      "amount": 78.96,
+      "seal_money": 4.67,
+      "max_board": 1,
+      "avg_turnover": 5.5,
+      "leaders": [
+        {
+          "code": "600141",
+          "name": "XD兴发集",
+          "board": 1
+        },
+        {
+          "code": "002312",
+          "name": "川发龙蟒",
           "board": 1
         }
       ],
@@ -166,65 +210,21 @@ window.AKSHARE_MARKET_DATA = {
     },
     {
       "name": "半导体",
-      "heat": 46,
-      "limit_up_count": 4,
-      "amount": 53.79,
-      "seal_money": 3.8,
-      "max_board": 1,
-      "avg_turnover": 15.96,
-      "leaders": [
-        {
-          "code": "688478",
-          "name": "晶升股份",
-          "board": 1
-        },
-        {
-          "code": "688515",
-          "name": "裕太微-U",
-          "board": 1
-        }
-      ],
-      "status": "轮动"
-    },
-    {
-      "name": "元件",
-      "heat": 43,
+      "heat": 45,
       "limit_up_count": 3,
-      "amount": 62.23,
-      "seal_money": 4.46,
-      "max_board": 3,
-      "avg_turnover": 11.56,
-      "leaders": [
-        {
-          "code": "603989",
-          "name": "艾华集团",
-          "board": 3
-        },
-        {
-          "code": "002579",
-          "name": "中京电子",
-          "board": 2
-        }
-      ],
-      "status": "轮动"
-    },
-    {
-      "name": "医疗器械",
-      "heat": 40,
-      "limit_up_count": 3,
-      "amount": 20.07,
-      "seal_money": 5.62,
+      "amount": 300.27,
+      "seal_money": 10.76,
       "max_board": 1,
-      "avg_turnover": 4.47,
+      "avg_turnover": 11.1,
       "leaders": [
         {
-          "code": "002432",
-          "name": "九安医疗",
+          "code": "600584",
+          "name": "长电科技",
           "board": 1
         },
         {
-          "code": "301580",
-          "name": "爱迪特",
+          "code": "600206",
+          "name": "有研新材",
           "board": 1
         }
       ],
@@ -232,21 +232,21 @@ window.AKSHARE_MARKET_DATA = {
     },
     {
       "name": "通用设备",
-      "heat": 39,
-      "limit_up_count": 3,
-      "amount": 19.28,
-      "seal_money": 4.84,
-      "max_board": 2,
-      "avg_turnover": 5.0,
+      "heat": 44,
+      "limit_up_count": 5,
+      "amount": 131.25,
+      "seal_money": 7.83,
+      "max_board": 3,
+      "avg_turnover": 18.2,
       "leaders": [
         {
           "code": "000811",
           "name": "冰轮环境",
-          "board": 2
+          "board": 3
         },
         {
-          "code": "002158",
-          "name": "汉钟精机",
+          "code": "600172",
+          "name": "黄河旋风",
           "board": 1
         }
       ],
@@ -255,232 +255,232 @@ window.AKSHARE_MARKET_DATA = {
   ],
   "premarket": [
     {
-      "code": "000657",
-      "name": "中钨高新",
-      "market": "主板 · 10cm",
-      "industry": "小金属",
-      "role": "容量中军",
-      "score": 72,
-      "latest": 98.48,
-      "change_pct": 10.0,
-      "buy_price": 98.48,
-      "stop_price": 94.54,
-      "target_price": 105.37,
-      "board_count": 1,
-      "seal_money": "2.78亿",
-      "first_seal_time": "13:59:09",
-      "break_count": 0,
-      "turnover": 6.3,
-      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:59:09，封板资金 2.78亿，炸板次数 0。"
-    },
-    {
       "code": "002167",
       "name": "东方锆业",
       "market": "主板 · 10cm",
       "industry": "小金属",
-      "role": "首板补涨",
-      "score": 70,
-      "latest": 16.13,
-      "change_pct": 10.03,
-      "buy_price": 16.13,
-      "stop_price": 15.48,
-      "target_price": 17.26,
-      "board_count": 1,
-      "seal_money": "4.18亿",
+      "role": "题材龙头",
+      "score": 73,
+      "latest": 17.74,
+      "change_pct": 9.98,
+      "buy_price": 17.74,
+      "stop_price": 17.03,
+      "target_price": 18.98,
+      "board_count": 2,
+      "seal_money": "9.33亿",
       "first_seal_time": "09:25:00",
       "break_count": 0,
-      "turnover": 3.73,
-      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:25:00，封板资金 4.18亿，炸板次数 0。"
+      "turnover": 0.77,
+      "reason": "小金属板块涨停密度靠前，当前2连板，首次封板 09:25:00，封板资金 9.33亿，炸板次数 0。"
     },
     {
-      "code": "002491",
-      "name": "通鼎互联",
+      "code": "600549",
+      "name": "厦门钨业",
       "market": "主板 · 10cm",
-      "industry": "通信设备",
-      "role": "题材龙头",
-      "score": 68,
-      "latest": 31.58,
-      "change_pct": 10.0,
-      "buy_price": 31.58,
-      "stop_price": 30.32,
-      "target_price": 33.79,
-      "board_count": 2,
-      "seal_money": "2.32亿",
-      "first_seal_time": "09:30:57",
-      "break_count": 0,
-      "turnover": 4.71,
-      "reason": "通信设备板块涨停密度靠前，当前2连板，首次封板 09:30:57，封板资金 2.32亿，炸板次数 0。"
-    },
-    {
-      "code": "002281",
-      "name": "光迅科技",
-      "market": "主板 · 10cm",
-      "industry": "通信设备",
+      "industry": "小金属",
       "role": "容量中军",
-      "score": 67,
-      "latest": 266.2,
+      "score": 73,
+      "latest": 94.5,
       "change_pct": 10.0,
-      "buy_price": 266.2,
-      "stop_price": 255.55,
-      "target_price": 284.83,
+      "buy_price": 94.5,
+      "stop_price": 90.72,
+      "target_price": 101.12,
       "board_count": 1,
-      "seal_money": "4.09亿",
-      "first_seal_time": "10:51:48",
+      "seal_money": "2.46亿",
+      "first_seal_time": "13:48:17",
       "break_count": 0,
-      "turnover": 5.25,
-      "reason": "通信设备板块涨停密度靠前，当前1连板，首次封板 10:51:48，封板资金 4.09亿，炸板次数 0。"
+      "turnover": 6.98,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:48:17，封板资金 2.46亿，炸板次数 0。"
     },
     {
-      "code": "603989",
-      "name": "艾华集团",
+      "code": "002428",
+      "name": "云南锗业",
       "market": "主板 · 10cm",
-      "industry": "元件",
+      "industry": "小金属",
+      "role": "容量中军",
+      "score": 72,
+      "latest": 110.48,
+      "change_pct": 10.0,
+      "buy_price": 110.48,
+      "stop_price": 106.06,
+      "target_price": 118.21,
+      "board_count": 1,
+      "seal_money": "3.40亿",
+      "first_seal_time": "09:32:36",
+      "break_count": 0,
+      "turnover": 5.4,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:32:36，封板资金 3.40亿，炸板次数 0。"
+    },
+    {
+      "code": "002407",
+      "name": "多氟多",
+      "market": "主板 · 10cm",
+      "industry": "化学制品",
+      "role": "容量中军",
+      "score": 65,
+      "latest": 42.66,
+      "change_pct": 10.01,
+      "buy_price": 42.66,
+      "stop_price": 40.95,
+      "target_price": 45.65,
+      "board_count": 1,
+      "seal_money": "3.58亿",
+      "first_seal_time": "11:18:51",
+      "break_count": 0,
+      "turnover": 17.96,
+      "reason": "化学制品板块涨停密度靠前，当前1连板，首次封板 11:18:51，封板资金 3.58亿，炸板次数 0。"
+    },
+    {
+      "code": "000811",
+      "name": "冰轮环境",
+      "market": "主板 · 10cm",
+      "industry": "通用设备",
       "role": "题材龙头",
-      "score": 61,
-      "latest": 41.5,
-      "change_pct": 9.99,
-      "buy_price": 41.5,
-      "stop_price": 39.84,
-      "target_price": 44.41,
+      "score": 64,
+      "latest": 44.19,
+      "change_pct": 10.01,
+      "buy_price": 44.19,
+      "stop_price": 42.42,
+      "target_price": 47.28,
       "board_count": 3,
-      "seal_money": "1.28亿",
-      "first_seal_time": "09:30:47",
+      "seal_money": "9611万",
+      "first_seal_time": "13:01:24",
       "break_count": 0,
-      "turnover": 1.35,
-      "reason": "元件板块涨停密度靠前，当前3连板，首次封板 09:30:47，封板资金 1.28亿，炸板次数 0。"
+      "turnover": 7.4,
+      "reason": "通用设备板块涨停密度靠前，当前3连板，首次封板 13:01:24，封板资金 9611万，炸板次数 0。"
     },
     {
-      "code": "600545",
-      "name": "卓郎智能",
+      "code": "603407",
+      "name": "长裕集团",
       "market": "主板 · 10cm",
-      "industry": "专用设备",
-      "role": "首板补涨",
-      "score": 61,
-      "latest": 7.25,
-      "change_pct": 10.02,
-      "buy_price": 7.25,
-      "stop_price": 6.96,
-      "target_price": 7.76,
-      "board_count": 1,
-      "seal_money": "9461万",
-      "first_seal_time": "11:26:56",
+      "industry": "化学原料",
+      "role": "题材龙头",
+      "score": 64,
+      "latest": 74.84,
+      "change_pct": 9.99,
+      "buy_price": 74.84,
+      "stop_price": 71.85,
+      "target_price": 80.08,
+      "board_count": 2,
+      "seal_money": "2.69亿",
+      "first_seal_time": "09:25:02",
       "break_count": 0,
-      "turnover": 9.66,
-      "reason": "专用设备板块涨停密度靠前，当前1连板，首次封板 11:26:56，封板资金 9461万，炸板次数 0。"
+      "turnover": 1.39,
+      "reason": "化学原料板块涨停密度靠前，当前2连板，首次封板 09:25:02，封板资金 2.69亿，炸板次数 0。"
     }
   ],
   "intraday": [
     {
-      "code": "000657",
-      "name": "中钨高新",
+      "code": "002167",
+      "name": "东方锆业",
+      "market": "主板 · 10cm",
+      "industry": "小金属",
+      "role": "题材龙头",
+      "score": 73,
+      "latest": 17.74,
+      "change_pct": 9.98,
+      "buy_price": 17.74,
+      "stop_price": 17.03,
+      "target_price": 18.98,
+      "board_count": 2,
+      "seal_money": "9.33亿",
+      "first_seal_time": "09:25:00",
+      "break_count": 0,
+      "turnover": 0.77,
+      "reason": "小金属板块涨停密度靠前，当前2连板，首次封板 09:25:00，封板资金 9.33亿，炸板次数 0。",
+      "grade": "A+",
+      "position": 20,
+      "trigger": "09:40 强度过滤：涨幅 9.98%，封板资金 9.33亿，所属行业 小金属。"
+    },
+    {
+      "code": "600549",
+      "name": "厦门钨业",
+      "market": "主板 · 10cm",
+      "industry": "小金属",
+      "role": "容量中军",
+      "score": 73,
+      "latest": 94.5,
+      "change_pct": 10.0,
+      "buy_price": 94.5,
+      "stop_price": 90.72,
+      "target_price": 101.12,
+      "board_count": 1,
+      "seal_money": "2.46亿",
+      "first_seal_time": "13:48:17",
+      "break_count": 0,
+      "turnover": 6.98,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:48:17，封板资金 2.46亿，炸板次数 0。",
+      "grade": "A",
+      "position": 12,
+      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.46亿，所属行业 小金属。"
+    },
+    {
+      "code": "002428",
+      "name": "云南锗业",
       "market": "主板 · 10cm",
       "industry": "小金属",
       "role": "容量中军",
       "score": 72,
-      "latest": 98.48,
+      "latest": 110.48,
       "change_pct": 10.0,
-      "buy_price": 98.48,
-      "stop_price": 94.54,
-      "target_price": 105.37,
+      "buy_price": 110.48,
+      "stop_price": 106.06,
+      "target_price": 118.21,
       "board_count": 1,
-      "seal_money": "2.78亿",
-      "first_seal_time": "13:59:09",
+      "seal_money": "3.40亿",
+      "first_seal_time": "09:32:36",
       "break_count": 0,
-      "turnover": 6.3,
-      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 13:59:09，封板资金 2.78亿，炸板次数 0。",
-      "grade": "A+",
-      "position": 12,
-      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.78亿，所属行业 小金属。"
-    },
-    {
-      "code": "002167",
-      "name": "东方锆业",
-      "market": "主板 · 10cm",
-      "industry": "小金属",
-      "role": "首板补涨",
-      "score": 70,
-      "latest": 16.13,
-      "change_pct": 10.03,
-      "buy_price": 16.13,
-      "stop_price": 15.48,
-      "target_price": 17.26,
-      "board_count": 1,
-      "seal_money": "4.18亿",
-      "first_seal_time": "09:25:00",
-      "break_count": 0,
-      "turnover": 3.73,
-      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:25:00，封板资金 4.18亿，炸板次数 0。",
-      "grade": "A",
-      "position": 8,
-      "trigger": "09:40 强度过滤：涨幅 10.03%，封板资金 4.18亿，所属行业 小金属。"
-    },
-    {
-      "code": "002491",
-      "name": "通鼎互联",
-      "market": "主板 · 10cm",
-      "industry": "通信设备",
-      "role": "题材龙头",
-      "score": 68,
-      "latest": 31.58,
-      "change_pct": 10.0,
-      "buy_price": 31.58,
-      "stop_price": 30.32,
-      "target_price": 33.79,
-      "board_count": 2,
-      "seal_money": "2.32亿",
-      "first_seal_time": "09:30:57",
-      "break_count": 0,
-      "turnover": 4.71,
-      "reason": "通信设备板块涨停密度靠前，当前2连板，首次封板 09:30:57，封板资金 2.32亿，炸板次数 0。",
+      "turnover": 5.4,
+      "reason": "小金属板块涨停密度靠前，当前1连板，首次封板 09:32:36，封板资金 3.40亿，炸板次数 0。",
       "grade": "A-",
-      "position": 5,
-      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 2.32亿，所属行业 通信设备。"
+      "position": 8,
+      "trigger": "09:40 强度过滤：涨幅 10.0%，封板资金 3.40亿，所属行业 小金属。"
     }
   ],
   "tracking": [
     {
-      "code": "000657",
-      "name": "中钨高新",
-      "position": 12,
-      "cost": 98.48,
-      "latest": 98.48,
-      "pnl": 0.0,
-      "industry_status": "小金属 · 容量中军",
-      "key_signal": "1连板 / 首封 13:59:09",
-      "signal": "分批止盈",
-      "signal_class": "add",
-      "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
-    },
-    {
       "code": "002167",
       "name": "东方锆业",
-      "position": 8,
-      "cost": 16.13,
-      "latest": 16.13,
+      "position": 20,
+      "cost": 17.74,
+      "latest": 17.74,
       "pnl": 0.0,
-      "industry_status": "小金属 · 首板补涨",
-      "key_signal": "1连板 / 首封 09:25:00",
+      "industry_status": "小金属 · 题材龙头",
+      "key_signal": "2连板 / 首封 09:25:00",
       "signal": "分批止盈",
       "signal_class": "add",
       "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
     },
     {
-      "code": "002491",
-      "name": "通鼎互联",
-      "position": 5,
-      "cost": 31.58,
-      "latest": 31.58,
+      "code": "600549",
+      "name": "厦门钨业",
+      "position": 12,
+      "cost": 94.5,
+      "latest": 94.5,
       "pnl": 0.0,
-      "industry_status": "通信设备 · 题材龙头",
-      "key_signal": "2连板 / 首封 09:30:57",
+      "industry_status": "小金属 · 容量中军",
+      "key_signal": "1连板 / 首封 13:48:17",
+      "signal": "分批止盈",
+      "signal_class": "add",
+      "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
+    },
+    {
+      "code": "002428",
+      "name": "云南锗业",
+      "position": 8,
+      "cost": 110.48,
+      "latest": 110.48,
+      "pnl": 0.0,
+      "industry_status": "小金属 · 容量中军",
+      "key_signal": "1连板 / 首封 09:32:36",
       "signal": "分批止盈",
       "signal_class": "add",
       "logic": "首板或低位补涨以套利为主，次日高开冲高先兑现一半。"
     }
   ],
   "raw_counts": {
-    "limit_up_pool": 91,
-    "previous_pool": 86,
-    "strong_pool": 347
+    "limit_up_pool": 134,
+    "previous_pool": 91,
+    "strong_pool": 383
   }
 };
