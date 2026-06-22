@@ -51,7 +51,6 @@ jobs:
           else
             echo "✅ 检测到数据变化，正在提交..."
             git commit -m "更新行情数据 $(TZ=Asia/Shanghai date +%Y-%m-%d)"
-                        # 先拉取远程最新变更，避免推送冲突
             git pull --rebase origin main || true
             git push
             echo "✅ 推送成功"
