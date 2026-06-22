@@ -3,7 +3,7 @@ window.AKSHARE_MARKET_DATA = {
     "source": "AkShare / 东方财富涨停池",
     "requested_date": "20260622",
     "trade_date": "20260622",
-    "generated_at": "2026-06-22 13:22:22",
+    "generated_at": "2026-06-22 13:47:48",
     "akshare_version": "1.18.64",
     "notes": [
       "涨停池来自 stock_zt_pool_em",
@@ -64,7 +64,7 @@ window.AKSHARE_MARKET_DATA = {
     ],
     "temperatures": [
       38,
-      48,
+      43,
       35,
       33,
       38,
