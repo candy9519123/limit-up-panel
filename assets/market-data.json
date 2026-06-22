@@ -1,9 +1,9 @@
-window.AKSHARE_MARKET_DATA = {
+{
   "meta": {
     "source": "多源融合 / AkShare + 东方财富",
     "requested_date": "20260622",
     "trade_date": "20260622",
-    "generated_at": "2026-06-22 14:11:22",
+    "generated_at": "2026-06-22 15:11:29",
     "akshare_version": "1.18.64",
     "notes": [
       "涨停池来自 AkShare stock_zt_pool_em 或东方财富HTTP API",
@@ -483,4 +483,4 @@ window.AKSHARE_MARKET_DATA = {
     "previous_pool": 91,
     "strong_pool": 383
   }
-};
+}

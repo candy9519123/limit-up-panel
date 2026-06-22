@@ -1,15 +1,15 @@
 window.AKSHARE_MARKET_DATA = {
   "meta": {
-    "source": "AkShare / 东方财富涨停池",
+    "source": "多源融合 / AkShare + 东方财富",
     "requested_date": "20260622",
     "trade_date": "20260622",
-    "generated_at": "2026-06-22 13:47:48",
+    "generated_at": "2026-06-22 15:11:29",
     "akshare_version": "1.18.64",
     "notes": [
-      "涨停池来自 stock_zt_pool_em",
+      "涨停池来自 AkShare stock_zt_pool_em 或东方财富HTTP API",
       "昨日涨停表现来自 stock_zt_pool_previous_em",
       "强势股池来自 stock_zt_pool_strong_em",
-      "概念板块快照若网络代理不可用，将由涨停池所属行业聚合替代"
+      "多源备份：AkShare失败时自动切换东方财富直连API"
     ]
   },
   "sentiment": {
@@ -64,7 +64,7 @@ window.AKSHARE_MARKET_DATA = {
     ],
     "temperatures": [
       38,
-      43,
+      48,
       35,
       33,
       38,
