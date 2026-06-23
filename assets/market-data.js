@@ -3,7 +3,7 @@ window.AKSHARE_MARKET_DATA = {
     "source": "多源融合 / AkShare + 东方财富",
     "requested_date": "20260623",
     "trade_date": "20260623",
-    "generated_at": "2026-06-23 12:06:49",
+    "generated_at": "2026-06-23 14:12:52",
     "akshare_version": "1.18.64",
     "notes": [
       "涨停池来自 AkShare stock_zt_pool_em 或东方财富HTTP API",
