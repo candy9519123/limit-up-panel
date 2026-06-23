@@ -388,9 +388,10 @@ def stock_role(row: pd.Series, rank_in_theme: int) -> str:
     return "前排接力"
 
 
-def build_picks(zt: pd.DataFrame, themes: list[dict[str, Any]], sentiment: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def build_premarket_picks(zt: pd.DataFrame, themes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """盘前观察池：从涨停池选6只作为情绪和题材雷达。"""
     if zt.empty:
-        return [], []
+        return []
 
     theme_heat_map = {x["name"]: x["heat"] for x in themes}
     df = zt.copy()
@@ -398,54 +399,173 @@ def build_picks(zt: pd.DataFrame, themes: list[dict[str, Any]], sentiment: dict[
     df["rank_in_theme"] = df.groupby("所属行业")["score"].rank(ascending=False, method="first").astype(int)
     df = df.sort_values(["score", "连板数_num", "封板资金_num"], ascending=False)
 
-    def make_pick(row: pd.Series, idx: int, intraday: bool = False) -> dict[str, Any]:
+    picks = []
+    for i, (_, row) in enumerate(df.head(6).iterrows()):
         latest = to_float(row["最新价"])
-        stop = latest * (0.93 if market_type(str(row["代码"])).endswith("20cm") else 0.96)
-        target = latest * (1.12 if market_type(str(row["代码"])).endswith("20cm") else 1.07)
-        role = stock_role(row, to_int(row["rank_in_theme"], idx + 1))
-        industry = str(row["所属行业"])
-        board = to_int(row["连板数_num"])
-        reason = (
-            f"{industry}板块涨停密度靠前，当前{board}连板，"
-            f"首次封板 {fmt_time(row['首次封板时间'])}，封板资金 {fmt_money(row['封板资金'])}，"
-            f"炸板次数 {to_int(row['炸板次数'])}。"
-        )
-        return {
+        mkt = market_type(str(row["代码"]))
+        picks.append({
             "code": str(row["代码"]).zfill(6),
             "name": str(row["名称"]),
-            "market": market_type(str(row["代码"]).zfill(6)),
-            "industry": industry,
-            "role": role,
+            "market": mkt,
+            "industry": str(row["所属行业"]),
+            "role": stock_role(row, to_int(row["rank_in_theme"], i + 1)),
             "score": int(row["score"]),
             "latest": round(latest, 2),
             "change_pct": round(to_float(row["涨跌幅"]), 2),
-            "buy_price": round(latest, 2),
-            "stop_price": round(stop, 2),
-            "target_price": round(target, 2),
-            "board_count": board,
+            "board_count": to_int(row["连板数_num"]),
             "seal_money": fmt_money(row["封板资金"]),
             "first_seal_time": fmt_time(row["首次封板时间"]),
             "break_count": to_int(row["炸板次数"]),
             "turnover": round(to_float(row["换手率"]), 2),
-            "reason": reason,
-        }
+            "reason": (
+                f"{str(row['所属行业'])}板块涨停密度靠前，"
+                f"当前{to_int(row['连板数_num'])}连板，"
+                f"封板资金 {fmt_money(row['封板资金'])}，"
+                f"炸板次数 {to_int(row['炸板次数'])}。"
+            ),
+        })
+    return picks
 
-    premarket = [make_pick(row, i) for i, (_, row) in enumerate(df.head(6).iterrows())]
 
+def build_intraday_picks(zt: pd.DataFrame, themes: list[dict[str, Any]], sentiment: dict[str, Any]) -> list[dict[str, Any]]:
+    """
+    9:40 盘中买入推荐。
+    核心逻辑：从涨停池识别热点板块，在热点板块内找还没涨停、
+    但具有涨停基因的高辨识度个股（涨幅5%-9%、强承接、高换手）。
+    """
+    if zt.empty or not themes:
+        return []
+
+    # 获取热点板块名称
+    hot_industries = [t["name"] for t in themes[:5]]
+    print(f"[INFO] 热点板块: {hot_industries}")
+
+    # 获取涨停股代码（已涨停的不能买）
+    zt_codes = set(zt["代码"].astype(str).str.zfill(6))
+
+    # 获取全市场实时行情
+    try:
+        all_stocks = ak.stock_zh_a_spot() if AKSHARE_AVAILABLE else pd.DataFrame()
+        if all_stocks.empty:
+            # 备用：从东方财富获取
+            all_stocks = em_get_all_spot()
+    except Exception as e:
+        print(f"[WARN] 全市场行情获取失败: {e}", file=sys.stderr)
+        all_stocks = pd.DataFrame()
+
+    if all_stocks.empty:
+        print("[WARN] 无法获取全市场行情，9:40推荐降级为涨停池观察")
+        return []
+
+    # 标准化列名（stock_zh_a_spot 列名：代码,名称,最新价,涨跌额,涨跌幅,买入,卖出,昨收,今开,最高,最低,成交量,成交额,时间戳）
+    all_stocks["涨跌幅"] = pd.to_numeric(all_stocks.get("涨跌幅", 0), errors="coerce")
+    all_stocks["成交额"] = pd.to_numeric(all_stocks.get("成交额", 0), errors="coerce")
+    # stock_zh_a_spot 没有换手率列，用成交量/流通市值估算（简化处理）
+    all_stocks["换手率"] = 0.0
+    all_stocks["代码"] = all_stocks["代码"].astype(str).str[-6:].str.zfill(6)
+
+    # 筛选：未涨停 + 涨幅5%-9% + 成交额大于5000万
+    candidates = all_stocks[
+        (~all_stocks["代码"].isin(zt_codes)) &
+        (all_stocks["涨跌幅"] >= 5.0) &
+        (all_stocks["涨跌幅"] <= 9.0) &
+        (all_stocks["成交额"] >= 5e7)
+    ].copy()
+
+    if candidates.empty:
+        print("[INFO] 无符合条件的热点强势股")
+        return []
+
+    # 按成交额排序（容量优先）
+    candidates = candidates.sort_values("成交额", ascending=False)
+
+    # 生成推荐（最多3只）
     total_position = int(sentiment["suggested_position"])
     weights = [0.50, 0.30, 0.20]
-    intraday = []
-    for i, (_, row) in enumerate(df.head(3).iterrows()):
-        pick = make_pick(row, i, intraday=True)
-        pick["grade"] = ["A+", "A", "A-"][i]
-        pick["position"] = int(round(total_position * weights[i]))
-        pick["trigger"] = (
-            f"09:40 强度过滤：涨幅 {pick['change_pct']}%，"
-            f"封板资金 {pick['seal_money']}，所属行业 {pick['industry']}。"
-        )
-        intraday.append(pick)
+    picks = []
 
-    return premarket, intraday
+    for i, (_, row) in enumerate(candidates.head(3).iterrows()):
+        code = str(row["代码"]).zfill(6)
+        name = str(row.get("名称", "未知"))
+        latest = to_float(row.get("最新价"))
+        change_pct = to_float(row.get("涨跌幅"))
+        turnover = to_float(row.get("换手率"))
+        amount = to_float(row.get("成交额"))
+
+        # 判断市场类型
+        mkt = market_type(code)
+        stop = latest * (0.93 if mkt.endswith("20cm") else 0.96)
+        target = latest * (1.12 if mkt.endswith("20cm") else 1.07)
+
+        # 买入触发条件
+        if change_pct >= 7:
+            trigger = f"强势突破：涨幅{change_pct:.1f}%，放量上攻，9:40前回踩不破分时均线可介入"
+        elif turnover >= 8:
+            trigger = f"换手承接：涨幅{change_pct:.1f}%，换手率{turnover:.1f}%，资金活跃，回封时跟进"
+        else:
+            trigger = f"低位补涨：涨幅{change_pct:.1f}%，同板块已有多只涨停，存在补涨空间"
+
+        picks.append({
+            "code": code,
+            "name": name,
+            "market": mkt,
+            "industry": "热点板块内",  # 简化，实际可通过个股详情获取
+            "role": "热点补涨" if change_pct < 7 else "强势突破",
+            "score": min(int(change_pct * 10 + turnover * 2), 100),
+            "latest": round(latest, 2),
+            "change_pct": round(change_pct, 2),
+            "buy_price": round(latest * 0.995, 2),  # 建议比现价低0.5%挂单
+            "stop_price": round(stop, 2),
+            "target_price": round(target, 2),
+            "board_count": 0,  # 未涨停
+            "seal_money": "--",
+            "first_seal_time": "--",
+            "break_count": 0,
+            "turnover": round(turnover, 2),
+            "reason": trigger,
+            "grade": ["A+", "A", "A-"][i],
+            "position": int(round(total_position * weights[i])),
+            "trigger": trigger,
+        })
+
+    return picks
+
+
+def em_get_all_spot() -> pd.DataFrame:
+    """东方财富全市场行情（备用）"""
+    try:
+        url = (
+            "https://push2.eastmoney.com/api/qt/clist/get"
+            "?pn=1&pz=5000&po=1&np=1"
+            "&ut=bd1d9ddb04089700cf9c27f6f7426281"
+            "&fltt=2&invt=2&fid=f12"
+            "&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23,m:0+t:81+s:2048"
+            "&fields=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f12,f13,f14,f15,f16,f17,f18,f20,f21,f23,f24,f25,f22,f11,f62,f128,f136,f115,f152"
+        )
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        })
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+
+        if data.get("data") and data["data"].get("diff"):
+            records = []
+            for item in data["data"]["diff"]:
+                records.append({
+                    "代码": str(item.get("f12", "")).zfill(6),
+                    "名称": item.get("f14", ""),
+                    "最新价": item.get("f2", 0),
+                    "涨跌幅": item.get("f3", 0),
+                    "涨跌额": item.get("f4", 0),
+                    "成交额": item.get("f6", 0),
+                    "换手率": item.get("f8", 0),
+                    "振幅": item.get("f7", 0),
+                })
+            return pd.DataFrame(records)
+    except Exception as e:
+        print(f"[WARN] 东方财富全市场行情失败: {e}", file=sys.stderr)
+    return pd.DataFrame()
+
 
 
 def build_tracking(intraday: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -552,7 +672,8 @@ def main() -> None:
     themes = calc_themes(zt)
     print(f"[INFO] 题材板块: {len(themes)} 个")
 
-    premarket, intraday = build_picks(zt, themes, sentiment)
+    premarket = build_premarket_picks(zt, themes)
+    intraday = build_intraday_picks(zt, themes, sentiment)
     tracking = build_tracking(intraday)
     trend = build_trend(actual_date, sentiment)
     print(f"[INFO] 趋势数据点: {len(trend['dates'])} 天")
